@@ -19,7 +19,7 @@
     "react-dom": "^19.1.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
-    "torrada": "^0.0.7"
+    "torrada": "^0.0.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
