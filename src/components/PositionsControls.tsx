@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { type ToastOptions, type ToastViewportProps } from 'torrada';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -36,13 +35,14 @@ export function PositionControls({
   currentPosition,
   onPositionChange,
 }: PositionControlsProps) {
-  useEffect(() => {
-    onDismissAll();
-  }, [currentPosition, onDismissAll]);
-
   const handlePositionChange = (position: Position) => {
-    onPositionChange(position);
-    onToast({ title: `Position changed to ${position}` });
+    if (position !== currentPosition) {
+      onDismissAll();
+      onPositionChange(position);
+      onToast({ title: `Position changed to ${position}` });
+    } else {
+      onToast({ title: `Toast at ${position}` });
+    }
   };
 
   return (
