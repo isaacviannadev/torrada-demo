@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Torrada Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A beautiful demo using React, TypeScript, and Vite to showcase the features of the Torrada toast library.
 
-## Expanding the ESLint configuration
+## About the Project
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project demonstrates how to integrate and customize toast notifications using the [Torrada](https://www.npmjs.com/package/torrada) library. It includes interactive examples of different toast types, position control, async updates, and easy integration with your React app.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Main Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Interactive Toasts**: Success, error, warning, and info notifications.
+- **Position Control**: Choose where toasts appear on the screen.
+- **Async Updates**: Demonstrates updating a toast during async operations.
+- **Customizable Design**: Modern styles with Tailwind CSS and animations.
+- **Reusable Components**: Buttons, cards, and ready-to-use layouts.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## How to Run
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Install dependencies:
+  ```bash
+  npm install
+  ```
+2. Start the development server:
+  ```bash
+  npm run dev
+  ```
+3. Open `http://localhost:5173` in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/App.tsx`: Main page and toast controls integration.
+- `src/components/`: Reusable components (button, card, toast controls, position, async, etc).
+- `src/index.css`: Global styles, themes, and Tailwind customizations.
+- `vite.config.ts`: Vite configuration.
+
+## Customization
+
+- Toast and component styles can be easily adjusted via Tailwind and CSS variables.
+- To use Torrada in your project, simply import the hooks and components as shown in `App.tsx`.
+
+## Available Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds for production.
+- `npm run preview`: Previews the production build.
+- `npm run lint`: Runs ESLint.
+
+## Technologies Used
+
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Torrada](https://www.npmjs.com/package/torrada)
+
+## Demo
+
+Explore the interactive controls to test different toast types, positions, and async updates. This project serves as a reference for integrating Torrada into any modern React application.
+
+---
+
+Made with ☕ and 🍞 by [isaacviannadev](https://github.com/isaacviannadev)
