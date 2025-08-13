@@ -4,16 +4,20 @@ import { ToastViewport, useToast } from 'torrada';
 import type { ToastViewportProps } from 'torrada';
 import 'torrada/style.css';
 import { AsyncControls } from './components/AsyncControls';
+import { CustomToastControls } from './components/CustomToastControls';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { PositionControls } from './components/PositionsControls';
+import { ThemeControls } from './components/ThemeControls';
 import { ToastControls } from './components/ToastControls';
 import { Card } from './components/ui/card';
 
 export function App() {
   const [currentPosition, setCurrentPosition] =
     useState<ToastViewportProps['position']>('top-right');
-  const { toast, update, dismissAll } = useToast();
+
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
+  const { toast, update, dismissAll, customToast } = useToast();
 
   return (
     <div className='min-h-screen bg-background'>
@@ -41,8 +45,18 @@ export function App() {
               onDismissAll={dismissAll}
             />
 
+            <AsyncControls onToast={toast} onUpdate={update} />
+            <CustomToastControls
+              customToast={customToast}
+              onToast={toast}
+              onDismissAll={dismissAll}
+            />
+
             <div className='lg:col-span-2'>
-              <AsyncControls onToast={toast} onUpdate={update} />
+              <ThemeControls
+                currentTheme={currentTheme}
+                onSetTheme={setCurrentTheme}
+              />
             </div>
           </div>
 
@@ -93,7 +107,7 @@ export function App() {
         </div>
       </section>
       <Footer />
-      <ToastViewport position={currentPosition} theme='light' />
+      <ToastViewport position={currentPosition} theme={currentTheme} />
     </div>
   );
 }
